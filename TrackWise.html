@@ -1,0 +1,141 @@
+<!-- 
+  TrackWise - Smart Expense Tracker
+  Author: Kamakshi
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackWise | Premium Expense Tracking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="expensetrackers.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    
+    <div class="app-wrapper">
+        <header>
+            <div class="header-top">
+                <h1>TrackWise</h1>
+                <div class="quote-container" id="quote-container">
+                    <p id="quote">"Think smart. Spend wise."</p>
+                </div>
+            </div>
+            <p class="subtitle">Your personal financial companion</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Left Column: Insights -->
+            <div class="stats-column">
+                <div class="container balance-card">
+                    <h4>Current Balance</h4>
+                    <h1 id="balance">&#8377;0.00</h1>
+                    
+                    <div class="inc-exp-overview">
+                        <div class="overview-item">
+                            <span>Income</span>
+                            <div class="progress-bar-bg"><div id="income-progress" class="progress-bar"></div></div>
+                            <p id="money-plus">+&#8377;0.00</p>
+                        </div>
+                        <div class="overview-item">
+                            <span>Expenses</span>
+                            <div class="progress-bar-bg"><div id="expense-progress" class="progress-bar expense"></div></div>
+                            <p id="money-minus">-&#8377;0.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container chart-card">
+                    <div class="chart-header">
+                        <h3 id="chart-title">Spending Analysis</h3>
+                        <div class="chart-toggle">
+                            <button id="btn-cat" class="active">By Category</button>
+                            <button id="btn-trend">Monthly Trend</button>
+                        </div>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="container reminders-card">
+                    <h3>Recurring Reminders</h3>
+                    <div id="reminders-list" class="reminders-list">
+                        <!-- Reminders will be injected here -->
+                        <p class="empty-msg">No recurring payments set.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Transactions & Add -->
+            <div class="action-column">
+                <div class="container history-card">
+                    <div class="history-header">
+                        <h3>Recent History</h3>
+                        <div class="history-controls">
+                            <select id="month-filter">
+                                <option value="all">All Time</option>
+                                <option value="current">Current Month</option>
+                            </select>
+                            <button id="clear-btn" class="clear-btn">Clear All</button>
+                        </div>
+                    </div>
+                    <ul id="list" class="list"></ul>
+                </div>
+
+                <div class="container form-card">
+                    <h3>Record Transaction</h3>
+                    <form id="form">
+                        <div class="form-control">
+                            <label for="text">Description</label>
+                            <input type="text" id="text" placeholder="e.g. Rent, Grocery, Salary" required/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-control">
+                                <label for="amount">Amount</label>
+                                <input type="number" id="amount" placeholder="0.00" required> 
+                            </div>
+                            <div class="form-control">
+                                <label for="category">Category</label>
+                                <select id="category">
+                                    <option value="General">General</option>
+                                    <option value="Grocery">Grocery</option>
+                                    <option value="Clothes">Clothes</option>
+                                    <option value="Food">Food & Dining</option>
+                                    <option value="Rent">Rent & Utilities</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Salary">Salary (Income)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-control">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div class="form-control checkbox-control">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="recurring">
+                                    <span>Recurring Monthly?</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn">Add Transaction</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>TrackWise &copy; 2024 | Designed & Developed by <strong>Kamakshi</strong></p>
+        </footer>
+    </div>
+
+
+    <script src="trackerscript.js"></script>
+  </body>
+</html>
